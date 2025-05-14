@@ -1,0 +1,33 @@
+@keyframes explode {
+  0% {
+    transform: scale(0.5) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5) translate(5px, -5px); /* Example fixed offset, or remove translate for pure scale */
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background-color: #FFF9EF  ; /* Updated: Accent color for particles - adjust to your theme */
+  border-radius: 50%;
+  pointer-events: none; /* So they don't interfere with clicks */
+  /* 
+    --random-x and --random-y with Math.random() are not standard CSS and won't work as intended here.
+    The randomization is primarily driven by the inline styles (left, top, scale, animationDelay) 
+    applied in the React component.
+  */
+}
+
+/* 
+   Note: The inline style 'transform: scale(${Math.random() * 3})' and 'animationDelay' 
+   in the JS component provide most of the visual randomness for the particles' initial state and timing.
+   The 'explode' animation primarily handles the outward motion (scaling) and fading effect common to all particles.
+   For more complex, truly unique per-particle explosion vectors controlled by CSS,
+   you would typically need JavaScript to calculate and apply these as inline styles or
+   explore advanced CSS capabilities like Houdini's @property (which has limited browser support).
+   Given the current setup, the JavaScript-driven randomization combined with this CSS keyframe
+   will achieve a good particle explosion effect.
+*/
