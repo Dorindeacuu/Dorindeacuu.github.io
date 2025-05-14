@@ -64,7 +64,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, videoId, 
   const getVideoSrc = (id: string): string => { // Removed currentTitle parameter
     // All projects will use these common parameters for muted playback.
     // Removed background=1 as it can prevent mobile playback.
-    const params = 'badge=0&autopause=0&player_id=0&app_id=58479&muted=1';
+    // Added byline=0, portrait=0, title=0 to hide Vimeo UI elements for a borderless look.
+    const params = 'badge=0&autopause=0&player_id=0&app_id=58479&muted=1&byline=0&portrait=0&title=0';
     let hash: string;
 
     // Set the unique hash based on the videoId itself.
